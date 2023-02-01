@@ -14,7 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('travel', function (Blueprint $table) {
-            $table->id();
+            $table->id() -> unique();
+            $table-> string('destination');
+            $table-> string('departure_station');
+            $table-> string('arrival_station');
+            $table-> unsignedSmallInteger('time_travel');
+            $table-> unsignedSmallInteger('price');
             $table->timestamps();
         });
     }
